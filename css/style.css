@@ -123,24 +123,34 @@ body {
 
 /* Estilo para as setas */
 .arrow {
+  /* Mantém as propriedades existentes */
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  font-size: 2rem;
+  font-size: 1.5rem; /* Diminui um pouco o tamanho para um visual mais limpo */
   padding: 10px 15px;
   cursor: pointer;
   z-index: 20;
-  height: 100%; /* Opcional: faz a seta ocupar a altura toda do carrossel */
   display: flex;
   align-items: center;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease; /* Transição para todas as propriedades */
+
+  /* Adiciona o novo estilo */
+  background-color: #e50914; /* Cor de destaque (vermelho da Netflix, por exemplo) */
+  border-radius: 50%; /* Deixa o botão circular */
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Adiciona uma sombra */
+  opacity: 0.8; /* Torna o botão um pouco transparente */
 }
 
 .arrow:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #b0060e; /* Cor mais escura no hover */
+  transform: translateY(-50%) scale(1.1); /* Efeito de "zoom" no hover */
+  opacity: 1; /* Retira a transparência */
 }
 
 #left-arrow {
@@ -249,6 +259,20 @@ body {
   margin-top: 15px;
   font-size: 1rem;
   color: #bbb;
+}
+/* Estiliza o sinal de '+' */
+.faq-question .plus {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+/* Quando o item da FAQ estiver ativo... */
+.faq-item.active .faq-answer {
+  display: block; /* ...a resposta aparece */
+}
+
+.faq-item.active .faq-question .plus {
+  transform: rotate(45deg); /* ...e o sinal de '+' gira */
 }
 
 /* ---------------- FOOTER ---------------- */
