@@ -310,19 +310,93 @@ body {
 
 /* ---------------- RESPONSIVO ---------------- */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
+    /* SEU CÓDIGO EXISTENTE */
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
 
-  .hero-content p {
-    font-size: 1.1rem;
-  }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
 
-  .menu ul {
-    flex-direction: column;
-    gap: 15px;
-    justify-content: center;
-  }
+    /* ESTILOS PARA O MENU MOBILE */
+    .header .container {
+        justify-content: space-between;
+    }
+
+    .hamburger-menu {
+        display: block; /* Mostra o botão de hambúrguer em telas pequenas */
+    }
+
+    .header .menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Move o menu para fora da tela */
+        width: 70%;
+        height: 100%;
+        background-color: #1a1a1a;
+        padding-top: 80px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        display: flex;
+    }
+
+    .header .menu.active {
+        right: 0; /* Desliza o menu para a tela */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    .header .menu ul {
+        flex-direction: column;
+        gap: 15px; /* Seu gap existente */
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .header .menu ul li {
+        margin: 15px 0;
+        width: 100%;
+    }
+
+    .header .menu ul li a {
+        font-size: 1.2rem;
+        padding: 10px 0;
+        display: block;
+    }
+}
+/* --- Desktop: Garante o layout original --- */
+@media (min-width: 769px) {
+    .header .container {
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .header .menu {
+        display: block; /* Garante que o menu de navegação esteja sempre visível no desktop */
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .header .menu ul {
+        flex-direction: row;
+    }
+
+    .header .menu ul li {
+        margin: 0;
+    }
+
+    .hamburger-menu {
+        display: none; /* Garante que o botão de hambúrguer esteja sempre oculto no desktop */
+    }
 }
 /* --- GALERIA DE EVENTOS --- */
 .gallery-section {
