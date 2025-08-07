@@ -574,3 +574,139 @@ body {
   margin-bottom: 20px;
   color: #bbb;
 }
+/* --- Botão de Uniforme --- */
+.uniform-button {
+  background-color: #e50914;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 5px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  display: block; /* Mude para block para ocupar a linha inteira */
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px; /* Adicione uma margem para separá-lo do próximo botão */
+}
+
+.uniform-button:hover {
+  background-color: #b0060e;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Botão do WhatsApp --- */
+.whatsapp-button {
+  background-color: #25d36565;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 5px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  display: block; /* Mude para block */
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+/* --- Estilo do Pop-up (Modal) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* Isso esconde o pop-up por padrão */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.uniform-form {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    color: #fff;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    animation: scale-up 0.3s forwards;
+}
+
+@keyframes scale-up {
+    from { transform: scale(0.95); }
+    to { transform: scale(1); }
+}
+
+.uniform-form h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #e50914;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.uniform-form .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.uniform-form .close-button:hover {
+    color: #e50914;
+}
+
+.uniform-form .form-group {
+    margin-bottom: 15px;
+}
+
+.uniform-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.uniform-form input[type="text"],
+.uniform-form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #2a2a2a;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.uniform-form input[type="text"]:focus,
+.uniform-form select:focus {
+    outline: none;
+    border-color: #e50914;
+}
+
+.uniform-form .cta-button {
+    width: 100%;
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.uniform-form .cta-button:hover {
+    background-color: #b0060e;
+}

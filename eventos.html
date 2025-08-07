@@ -8,100 +8,169 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <img src="img/logo-branco.jpg" alt="Logo Mestre Kino" class="logo">
-      <nav class="menu">
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="eventos.html" class="active">Eventos</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <header class="header">
+        <div class="container">
+            <img src="img/logo-branco.jpg" alt="Logo Mestre Kino" class="logo">
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="eventos.html" class="active">Eventos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main class="page-content">
-    <section class="events-hero">
-      <div class="container hero-content">
-        <h1>Nossos Eventos e Apresentações</h1>
-        <p>Aqui você encontra as informações do evento e solicita seu uniforme</p>
-      </div>
-    </section>
+    <main class="page-content">
+        <section class="events-hero">
+            <div class="container hero-content">
+                <h1>Nossos Eventos e Apresentações</h1>
+                <p>Aqui você encontra as informações do evento e solicita seu uniforme</p>
+            </div>
+        </section>
 
-    </section>
+        <section class="event-details-section">
+            <div class="container">
+                <div class="event-details-card">
+                    <h3>Inscrição Para o Festival BrinKar+ Capoeira</h3>
+                    <p class="event-date">21 de junho de 2025</p>
 
-    <section class="event-details-section">
-      <div class="container">
-        <div class="event-details-card">
-          <h3>Inscrição Para o Festival BrinKar+ Capoeira</h3>
-          <p class="event-date">21 de junho de 2025</p>
+                    <div class="event-info">
+                        <p><strong>Local do evento:</strong> CDC Maria Felizarda da Silva - Santos FC</p>
+                        <p><strong>Endereço do evento:</strong> Av. Salim Antônio Curiati, 225 - Campo Grande, São Paulo - SP, 04690-050</p>
+                    </div>
 
-          <div class="event-info">
-            <p><strong>Local do evento:</strong> CDC Maria Felizarda da Silva - Santos FC</p>
-            <p><strong>Endereço do evento:</strong> Av. Salim Antônio Curiati, 225 - Campo Grande, São Paulo - SP, 04690-050</p>
-          </div>
+                    <div class="event-schedule">
+                        <h4>Programação:</h4>
+                        <ul>
+                            <li><strong>09:00</strong> - Concentração, alongamento e aquecimento;</li>
+                            <li><strong>10:00</strong> - Divisão dos alunos em 4 grupos, com atividades diversas dentro da capoeira, adequadas para cada faixa etária;</li>
+                            <li><strong>11:30</strong> - Apresentações;</li>
+                            <li><strong>12:00</strong> - Encerramento, com a realização de uma grande roda de capoeira.</li>
+                        </ul>
+                    </div>
 
-          <div class="event-schedule">
-            <h4>Programação:</h4>
+                    <p class="contact-link">
+                        Para mais informações:
+                        <a href="#" class="uniform-button" id="open-uniform-form">Solicite seu uniforme</a>
+                        <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Entrar em contato
+                        </a>
+                    </p>
+
+                    <div class="modal-overlay" id="uniform-form-modal">
+                        <div class="uniform-form">
+                            <button class="close-button" id="close-uniform-form">&times;</button>
+                            <h3>Solicitação de Uniforme</h3>
+                            <form id="uniform-request-form">
+                                <div class="form-group">
+                                    <label for="student-name">Nome do Aluno</label>
+                                    <input type="text" id="student-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="responsible-name">Nome do Responsável</label>
+                                    <input type="text" id="responsible-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="class-location">Professor e Local de Aula</label>
+                                    <select id="class-location" required>
+                                        <option value="" disabled selected>Selecione uma opção</option>
+                                        <option value="mestre-kino-cia-athletica-kansas-manha-3/4">Mestre Kino - Cia Athletica Kansas (Manhã 3/4)</option>
+                                        <option value="mestre-kino-cia-athletica-kansas-manha-5/6">Mestre Kino - Cia Athletica Kansas (Manhã 5/6)</option>
+                                        <option value="mestre-kino-cia-athletica-kansas-manha-7/10">Mestre Kino - Cia Athletica Kansas (Manhã 7/10)</option>
+                                        <option value="mestre-kino-cia-athletica-kansas-tarde-3/4">Mestre Kino - Cia Athletica Kansas (Tarde 3/4)</option>
+                                        <option value="mestre-kino-cia-athletica-kansas-tarde-5/6">Mestre Kino - Cia Athletica Kansas (Tarde 5/6)</option>
+                                        <option value="mestre-kino-cia-athletica-kansas-tarde-7/10">Mestre Kino - Cia Athletica Kansas (Tarde 7/10)</option>
+                                        <option value="mestre-kino-vila-preo">Mestre Kino - Vila Préo</option>
+                                        <option value="mestre-kino-green-book-scool">Mestre Kino - Green Book scool</option>
+                                        <option value="mestre-kino-inova">Mestre Kino - Inova</option>
+                                        <option value="mestre-kino-espaco-livre">Mestre Kino - Espaço Livre</option>
+                                        <option value="mestre-kino-humboldt">Mestre Kino - Humboldt</option>
+                                        <option value="mestre-kino-cdc-maria-felizarda">Mestre Kino - CDC Maria Felizarda</option>
+                                        <option value="mestre-kino-parque-do-chuvisco">Mestre Kino - Parque do Chuvisco</option>
+                                        <option value="mestre-kino-estudio-brinkar">Mestre Kino - Estúdio BrinKar +</option>
+                                        <option value="prof-mao-academia-black-puma">Prof. Mão - Academia Black Puma</option>
+                                        <option value="prof-mao-academia-peralta-fitness">Prof. Mão - Academia Peralta Fitness</option>
+                                        <option value="prof-mao-colegio-magister">Prof. Mão - Colégio Magister</option>
+                                        <option value="prof-mao-cia-atletica-kansas">Prof. Mão - Cia Atlética Kansas</option>
+                                        <option value="prof-thyago-colegio-passionista-sao-paulo-da-cruz">Prof. Thyago - Colégio Passionista São Paulo da Cruz</option>
+                                        <option value="prof-thyago-colegio-americo-melo">Prof. Thyago - Colégio Américo Melo</option>
+                                        <option value="prof-bianca-maple-bear">Prof. Bianca - Maple Bear</option>
+                                        <option value="prof-lombriga-clube-paulista-de-judo">Prof. Lombriga - Clube Paulista de Judô</option>
+                                        <option value="prof-bruno-academia-peralta">Prof. Bruno - Academia Peralta</option>
+                                        <option value="prof-ana-bia-cia-atletica-kansas">Prof. Ana Bia - Cia Atlética Kansas</option>
+                                        <option value="prof-ana-bia-vila-preo">Prof. Ana Bia - Vila Préo</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adult-size">Tamanho da Camisa Adulto</label>
+                                    <select id="adult-size" required>
+                                        <option value="" disabled selected>Selecione uma opção</option>
+                                        <option value="PP">PP</option>
+                                        <option value="P">P</option>
+                                        <option value="M">M</option>
+                                        <option value="G">G</option>
+                                        <option value="GG">GG</option>
+                                        <option value="XG">XG</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="child-size">Tamanho da Camisa Infantil</label>
+                                    <select id="child-size" required>
+                                        <option value="" disabled selected>Selecione uma opção</option>
+                                        <option value="6">06</option>
+                                        <option value="8">08</option>
+                                        <option value="10">10</option>
+                                        <option value="12">12</option>
+                                        <option value="14">14</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="cta-button">Enviar Pedido</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="event-warning">
+                        <p><strong>🚨 ATENÇÃO!!!</strong></p>
+                        <p>Sua inscrição só será feita caso receba uma notificação em seu WhatsApp que será solicitado no formulário.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="gallery-section">
+            <div class="container">
+                <h2>Últimos Eventos</h2>
+                <div class="event-grid">
+                    <div class="event-item">
+                        <img src="img/evento-teleton.jpg" alt="Apresentação no Teleton 2019">
+                        <h3>Teleton 2019</h3>
+                        <p>Participação especial com os alunos da AACD.</p>
+                    </div>
+                    <div class="event-item">
+                        <img src="img/evento-alemanha.jpg" alt="Apresentação na Alemanha">
+                        <h3>Apresentação na Alemanha</h3>
+                        <p>Divulgando a capoeira em um evento cultural europeu.</p>
+                    </div>
+                    <div class="event-item">
+                        <img src="img/evento-humboldt.jpg" alt="Rodas de Capoeira no Colégio Humboldt">
+                        <h3>Rodas de Capoeira</h3>
+                        <p>Momentos de treino e integração com os alunos do Colégio Humboldt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
             <ul>
-              <li><strong>09:00</strong> - Concentração, alongamento e aquecimento;</li>
-              <li><strong>10:00</strong> - Divisão dos alunos em 4 grupos, com atividades diversas dentro da capoeira, adequadas para cada faixa etária;</li>
-              <li><strong>11:30</strong> - Apresentações;</li>
-              <li><strong>12:00</strong> - Encerramento, com a realização de uma grande roda de capoeira.</li>
+                <li><a href="termos.html">Termos de Uso</a></li>
+                <li><a href="politica.html">Privacidade</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
             </ul>
-          </div>
-          
-            <p class="contact-link">
-              Para mais informações: 
-              <a href="contato.html" class="whatsapp-button">
-                <i class="fab fa-whatsapp"></i> Entrar em contato
-              </a>
-            </p>
-
-          <div class="event-warning">
-            <p><strong>🚨 ATENÇÃO!!!</strong></p>
-            <p>Sua inscrição só será feita caso receba uma notificação em seu WhatsApp que será solicitado no formulário.</p>
-          </div>
+            <p>&copy; 2025 Mestre Kino Capoeira. Todos os direitos reservados.</p>
         </div>
-      </div>
-    </section>
-
-  </main>
-
-    <section class="gallery-section">
-      <div class="container">
-        <h2>Últimos Eventos</h2>
-        <div class="event-grid">
-          <div class="event-item">
-            <img src="img/evento-teleton.jpg" alt="Apresentação no Teleton 2019">
-            <h3>Teleton 2019</h3>
-            <p>Participação especial com os alunos da AACD.</p>
-          </div>
-          <div class="event-item">
-            <img src="img/evento-alemanha.jpg" alt="Apresentação na Alemanha">
-            <h3>Apresentação na Alemanha</h3>
-            <p>Divulgando a capoeira em um evento cultural europeu.</p>
-          </div>
-          <div class="event-item">
-            <img src="img/evento-humboldt.jpg" alt="Rodas de Capoeira no Colégio Humboldt">
-            <h3>Rodas de Capoeira</h3>
-            <p>Momentos de treino e integração com os alunos do Colégio Humboldt.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-content">
-      <ul>
-        <li><a href="termos.html">Termos de Uso</a></li>
-        <li><a href="politica.html">Privacidade</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
-      </ul>
-      <p>&copy; 2025 Mestre Kino Capoeira. Todos os direitos reservados.</p>
-    </div>
-  </footer>
+    </footer>
+    <script src="js/formulario.js"></script>
 </body>
 </html>
