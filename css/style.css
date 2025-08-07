@@ -310,7 +310,7 @@ body {
 
 /* ---------------- RESPONSIVO ---------------- */
 @media (max-width: 768px) {
-    /* SEU CÓDIGO EXISTENTE */
+    /* Seu código existente */
     .hero-content h1 {
         font-size: 2.2rem;
     }
@@ -325,16 +325,24 @@ body {
     }
 
     .hamburger-menu {
-        display: block; /* Mostra o botão de hambúrguer em telas pequenas */
+        display: block;
+        background: none; /* Remove o fundo do botão */
+        border: none; /* Remove a borda */
+        padding: 0; /* Remove o padding interno */
+        color: #fff;
+        font-size: 28px; /* Aumenta o tamanho do ícone */
+        cursor: pointer;
+        z-index: 1001;
     }
 
     .header .menu {
         position: fixed;
         top: 0;
-        right: -100%; /* Move o menu para fora da tela */
+        right: -100%;
         width: 70%;
         height: 100%;
         background-color: #1a1a1a;
+        padding: 20px;
         padding-top: 80px;
         transition: right 0.3s ease;
         z-index: 1000;
@@ -342,19 +350,20 @@ body {
         align-items: center;
         justify-content: flex-start;
         display: flex;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
     }
 
     .header .menu.active {
-        right: 0; /* Desliza o menu para a tela */
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        right: 0;
     }
     
     .header .menu ul {
         flex-direction: column;
-        gap: 15px; /* Seu gap existente */
+        gap: 15px;
         justify-content: center;
         width: 100%;
         text-align: center;
+        padding: 0;
     }
 
     .header .menu ul li {
