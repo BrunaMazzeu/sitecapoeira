@@ -452,6 +452,34 @@ body {
   color: #bbb;
   font-size: 0.9rem;
 }
+
+.event-item.reel {
+  width: 250px;          /* largura fixa igual do card */
+  height: 375px;         /* altura fixa igual do card */
+  border-radius: 10px;
+  overflow: hidden;      /* esconde tudo que ultrapassa */
+  background-color: #222;
+  position: relative;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.event-item.reel iframe {
+  width: 100vw;          /* largura da viewport */
+  max-width: 350px;      /* máximo um pouco maior que o card */
+  height: 100vh;         /* altura da viewport */
+  max-height: 525px;     /* 2.1x largura para manter proporção */
+  position: absolute;    /* tira do fluxo para ajuste */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.72);  /* centraliza e escala */
+  border: none;
+  overflow: hidden;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+
 /* --- SEÇÃO DE HISTÓRIA --- */
 .history-section {
   background-color: #000;
