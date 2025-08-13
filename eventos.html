@@ -62,76 +62,103 @@
                     </p>
 
                     <div class="modal-overlay" id="uniform-form-modal">
-                        <div class="uniform-form">
-                            <button class="close-button" id="close-uniform-form">&times;</button>
-                            <h3>Solicitação de Uniforme</h3>
-                            <form id="uniform-request-form">
-                                <div class="form-group">
-                                    <label for="student-name">Nome do Aluno</label>
-                                    <input type="text" id="student-name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="responsible-name">Nome do Responsável</label>
-                                    <input type="text" id="responsible-name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="class-location">Professor e Local de Aula</label>
-                                    <select id="class-location" required>
-                                        <option value="" disabled selected>Selecione uma opção</option>
-                                        <option value="mestre-kino-cia-athletica-kansas-manha-3/4">Mestre Kino - Cia Athletica Kansas (Manhã 3/4)</option>
-                                        <option value="mestre-kino-cia-athletica-kansas-manha-5/6">Mestre Kino - Cia Athletica Kansas (Manhã 5/6)</option>
-                                        <option value="mestre-kino-cia-athletica-kansas-manha-7/10">Mestre Kino - Cia Athletica Kansas (Manhã 7/10)</option>
-                                        <option value="mestre-kino-cia-athletica-kansas-tarde-3/4">Mestre Kino - Cia Athletica Kansas (Tarde 3/4)</option>
-                                        <option value="mestre-kino-cia-athletica-kansas-tarde-5/6">Mestre Kino - Cia Athletica Kansas (Tarde 5/6)</option>
-                                        <option value="mestre-kino-cia-athletica-kansas-tarde-7/10">Mestre Kino - Cia Athletica Kansas (Tarde 7/10)</option>
-                                        <option value="mestre-kino-vila-preo">Mestre Kino - Vila Préo</option>
-                                        <option value="mestre-kino-green-book-scool">Mestre Kino - Green Book scool</option>
-                                        <option value="mestre-kino-inova">Mestre Kino - Inova</option>
-                                        <option value="mestre-kino-espaco-livre">Mestre Kino - Espaço Livre</option>
-                                        <option value="mestre-kino-humboldt">Mestre Kino - Humboldt</option>
-                                        <option value="mestre-kino-cdc-maria-felizarda">Mestre Kino - CDC Maria Felizarda</option>
-                                        <option value="mestre-kino-parque-do-chuvisco">Mestre Kino - Parque do Chuvisco</option>
-                                        <option value="mestre-kino-estudio-brinkar">Mestre Kino - Estúdio BrinKar +</option>
-                                        <option value="prof-mao-academia-black-puma">Prof. Mão - Academia Black Puma</option>
-                                        <option value="prof-mao-academia-peralta-fitness">Prof. Mão - Academia Peralta Fitness</option>
-                                        <option value="prof-mao-colegio-magister">Prof. Mão - Colégio Magister</option>
-                                        <option value="prof-mao-cia-atletica-kansas">Prof. Mão - Cia Atlética Kansas</option>
-                                        <option value="prof-thyago-colegio-passionista-sao-paulo-da-cruz">Prof. Thyago - Colégio Passionista São Paulo da Cruz</option>
-                                        <option value="prof-thyago-colegio-americo-melo">Prof. Thyago - Colégio Américo Melo</option>
-                                        <option value="prof-bianca-maple-bear">Prof. Bianca - Maple Bear</option>
-                                        <option value="prof-lombriga-clube-paulista-de-judo">Prof. Lombriga - Clube Paulista de Judô</option>
-                                        <option value="prof-bruno-academia-peralta">Prof. Bruno - Academia Peralta</option>
-                                        <option value="prof-ana-bia-cia-atletica-kansas">Prof. Ana Bia - Cia Atlética Kansas</option>
-                                        <option value="prof-ana-bia-vila-preo">Prof. Ana Bia - Vila Préo</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="adult-size">Tamanho da Camisa Adulto</label>
-                                    <select id="adult-size" required>
-                                        <option value="" disabled selected>Selecione uma opção</option>
-                                        <option value="PP">PP</option>
-                                        <option value="P">P</option>
-                                        <option value="M">M</option>
-                                        <option value="G">G</option>
-                                        <option value="GG">GG</option>
-                                        <option value="XG">XG</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="child-size">Tamanho da Camisa Infantil</label>
-                                    <select id="child-size" required>
-                                        <option value="" disabled selected>Selecione uma opção</option>
-                                        <option value="6">06</option>
-                                        <option value="8">08</option>
-                                        <option value="10">10</option>
-                                        <option value="12">12</option>
-                                        <option value="14">14</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="cta-button">Enviar Pedido</button>
-                            </form>
-                        </div>
+                    <div class="uniform-form">
+                        <button class="close-button" id="close-uniform-form">&times;</button>
+                        <h3>Solicitação de Uniforme</h3>
+                        <form id="uniform-request-form">
+                            <div class="form-group">
+                                <label for="student-name">Nome do Aluno</label>
+                                <input type="text" id="student-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="responsible-name">Nome do Responsável</label>
+                                <input type="text" id="responsible-name" required>
+                            </div>
+
+                            <!-- CAMPO WHATSAPP -->
+                            <div class="form-group">
+                                <label for="whatsapp">WhatsApp</label>
+                                <input 
+                                    type="text" 
+                                    id="whatsapp" 
+                                    name="whatsapp" 
+                                    placeholder="(11) 99999-9999" 
+                                    required
+                                    pattern="\(\d{2}\) \d{5}-\d{4}" 
+                                    title="Digite seu WhatsApp no formato (11) 99999-9999">
+                            </div>
+
+                            <!-- CAMPO CPF -->
+                            <div class="form-group">
+                                <label for="cpf">CPF</label>
+                                <input 
+                                    type="text" 
+                                    id="cpf" 
+                                    name="cpf" 
+                                    placeholder="000.000.000-00" 
+                                    required
+                                    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
+                                    title="Digite seu CPF no formato 000.000.000-00">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="class-location">Professor e Local de Aula</label>
+                                <select id="class-location" required>
+                                    <option value="" disabled selected>Selecione uma opção</option>
+                                    <option value="mestre-kino-cia-athletica-kansas-manha-3/4">Mestre Kino - Cia Athletica Kansas (Manhã 3/4)</option>
+                                    <option value="mestre-kino-cia-athletica-kansas-manha-5/6">Mestre Kino - Cia Athletica Kansas (Manhã 5/6)</option>
+                                    <option value="mestre-kino-cia-athletica-kansas-manha-7/10">Mestre Kino - Cia Athletica Kansas (Manhã 7/10)</option>
+                                    <option value="mestre-kino-cia-athletica-kansas-tarde-3/4">Mestre Kino - Cia Athletica Kansas (Tarde 3/4)</option>
+                                    <option value="mestre-kino-cia-athletica-kansas-tarde-5/6">Mestre Kino - Cia Athletica Kansas (Tarde 5/6)</option>
+                                    <option value="mestre-kino-cia-athletica-kansas-tarde-7/10">Mestre Kino - Cia Athletica Kansas (Tarde 7/10)</option>
+                                    <option value="mestre-kino-vila-preo">Mestre Kino - Vila Préo</option>
+                                    <option value="mestre-kino-green-book-scool">Mestre Kino - Green Book scool</option>
+                                    <option value="mestre-kino-inova">Mestre Kino - Inova</option>
+                                    <option value="mestre-kino-espaco-livre">Mestre Kino - Espaço Livre</option>
+                                    <option value="mestre-kino-humboldt">Mestre Kino - Humboldt</option>
+                                    <option value="mestre-kino-cdc-maria-felizarda">Mestre Kino - CDC Maria Felizarda</option>
+                                    <option value="mestre-kino-parque-do-chuvisco">Mestre Kino - Parque do Chuvisco</option>
+                                    <option value="mestre-kino-estudio-brinkar">Mestre Kino - Estúdio BrinKar +</option>
+                                    <option value="prof-mao-academia-black-puma">Prof. Mão - Academia Black Puma</option>
+                                    <option value="prof-mao-academia-peralta-fitness">Prof. Mão - Academia Peralta Fitness</option>
+                                    <option value="prof-mao-colegio-magister">Prof. Mão - Colégio Magister</option>
+                                    <option value="prof-mao-cia-atletica-kansas">Prof. Mão - Cia Atlética Kansas</option>
+                                    <option value="prof-thyago-colegio-passionista-sao-paulo-da-cruz">Prof. Thyago - Colégio Passionista São Paulo da Cruz</option>
+                                    <option value="prof-thyago-colegio-americo-melo">Prof. Thyago - Colégio Américo Melo</option>
+                                    <option value="prof-bianca-maple-bear">Prof. Bianca - Maple Bear</option>
+                                    <option value="prof-lombriga-clube-paulista-de-judo">Prof. Lombriga - Clube Paulista de Judô</option>
+                                    <option value="prof-bruno-academia-peralta">Prof. Bruno - Academia Peralta</option>
+                                    <option value="prof-ana-bia-cia-atletica-kansas">Prof. Ana Bia - Cia Atlética Kansas</option>
+                                    <option value="prof-ana-bia-vila-preo">Prof. Ana Bia - Vila Préo</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="adult-size">Tamanho da Camisa Adulto</label>
+                                <select id="adult-size" required>
+                                    <option value="" disabled selected>Selecione uma opção</option>
+                                    <option value="PP">PP</option>
+                                    <option value="P">P</option>
+                                    <option value="M">M</option>
+                                    <option value="G">G</option>
+                                    <option value="GG">GG</option>
+                                    <option value="XG">XG</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="child-size">Tamanho da Camisa Infantil</label>
+                                <select id="child-size" required>
+                                    <option value="" disabled selected>Selecione uma opção</option>
+                                    <option value="6">06</option>
+                                    <option value="8">08</option>
+                                    <option value="10">10</option>
+                                    <option value="12">12</option>
+                                    <option value="14">14</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="cta-button">Enviar Pedido</button>
+                        </form>
                     </div>
+                </div>
                     <div class="event-warning">
                         <p><strong>🚨 ATENÇÃO!!!</strong></p>
                         <p>Sua inscrição só será feita caso receba uma notificação em seu WhatsApp que será solicitado no formulário.</p>

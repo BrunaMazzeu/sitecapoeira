@@ -24,6 +24,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('uniform-form-modal');
     const form = document.getElementById('uniform-request-form');
 
+    const cpfInput = document.getElementById('cpf');
+    const whatsappInput = document.getElementById('whatsapp');
+
+    // --- MÁSCARA CPF ---
+    if (cpfInput) {
+        cpfInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            e.target.value = value;
+        });
+    }
+
+    // --- MÁSCARA WHATSAPP ---
+    if (whatsappInput) {
+        whatsappInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+            value = value.replace(/(\d{5})(\d)/, '$1-$2');
+            e.target.value = value;
+        });
+    }
+
     if (openFormButton && modal) {
         openFormButton.addEventListener('click', (e) => {
             e.preventDefault();

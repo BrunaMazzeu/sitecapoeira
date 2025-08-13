@@ -747,6 +747,10 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     transform: scale(0.95);
     animation: scale-up 0.3s forwards;
+
+    /* CORREÇÃO PARA ROLAGEM */
+    max-height: 90vh;       /* limita a altura do modal a 90% da tela */
+    overflow-y: auto;       /* adiciona rolagem se o conteúdo ultrapassar */
 }
 
 @keyframes scale-up {
