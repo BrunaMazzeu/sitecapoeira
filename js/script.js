@@ -68,9 +68,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Pedido de uniforme enviado com sucesso! Aguarde o nosso contato.');
-            modal.style.display = 'none';
-            form.reset();
+        
+            // Captura os valores do formulário
+            const pedidoData = {
+                nome_aluno: document.getElementById('student-name').value,
+                nome_responsavel: document.getElementById('responsible-name').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                cpf: document.getElementById('cpf').value,
+                professor_local: document.getElementById('class-location').value,
+                tamanho_camisa_adulto: document.getElementById('adult-size').value,
+                tamanho_camisa_infantil: document.getElementById('child-size').value,
+                pago: 0 // inicialmente 0, depois será marcado como pago no dashboard
+            };
+        
+            // Envia para a API
+            fetch('http://localhost:3000/api/pedidos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(pedidoData)
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert(data.message); // exibe mensagem de sucesso
+                modal.style.display = 'none';
+                form.reset();
+            })
+            .catch(err => {
+                console.error(err);
+                alert('Ocorreu um erro ao enviar o pedido.');
+            });
         });
     }
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Pedidos de Uniforme</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Dashboard - Pedidos de Uniforme</h1>
+
+    <div>
+        <input type="text" id="filter-input" placeholder="Filtrar por nome, CPF ou WhatsApp">
+        <button id="refresh-button">Atualizar</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Aluno</th>
+                <th>Responsável</th>
+                <th>WhatsApp</th>
+                <th>CPF</th>
+                <th>Professor / Local</th>
+                <th>Camisa Adulto</th>
+                <th>Camisa Infantil</th>
+                <th>Pago</th>
+                <th>Enviado</th>
+            </tr>
+        </thead>
+        <tbody id="pedidos-table-body">
+            <!-- Linhas serão preenchidas pelo JS -->
+        </tbody>
+    </table>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
