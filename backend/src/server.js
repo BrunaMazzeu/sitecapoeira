@@ -10,11 +10,11 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Serve arquivos estáticos da pasta public
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve arquivos estáticos do frontend/public
+app.use(express.static(path.join(__dirname, '../../frontend/public')));
 
 // Conexão SQLite
-const db = new sqlite3.Database('./pedidos.db', (err) => {
+const db = new sqlite3.Database(path.join(__dirname, '../pedidos.db'), (err) => {
     if (err) console.error('Erro no banco:', err.message);
     else console.log('Conectado ao banco SQLite.');
 });
@@ -66,4 +66,3 @@ app.put('/api/pedidos/:id/enviado', (req, res) => {
 
 // Inicia servidor
 app.listen(PORT, '0.0.0.0', () => console.log(`Servidor rodando em http://127.0.0.1:${PORT}`));
-
