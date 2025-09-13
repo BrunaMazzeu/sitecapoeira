@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SITECAPOEIRA - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="./css/dashboard.css">
 </head>
 <body>
@@ -16,12 +17,12 @@
             </div>
             <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="#" class="nav-link active"><i class="icon-dashboard"></i> Dashboard</a></li>
-                    <li><a href="#" class="nav-link"><i class="icon-solicitacoes"></i> Solicitações</a></li>
-                    <li><a href="#" class="nav-link"><i class="icon-pedidos"></i> Pedidos</a></li>
-                    <li><a href="#" class="nav-link"><i class="icon-clientes"></i> Clientes</a></li>
-                    <li><a href="#" class="nav-link"><i class="icon-config"></i> Configurações</a></li>
-                    <li><a href="#" class="nav-link"><i class="icon-logout"></i> Sair</a></li>
+                    <li><a href="#" class="nav-link active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-file-alt"></i> Solicitações</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i> Pedidos</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-cog"></i> Configurações</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
                 </ul>
             </nav>
         </aside>
@@ -43,26 +44,32 @@
 
             <section class="summary-cards">
                 <div class="card">
-                    <div class="card-icon"><i class="icon-solicitacoes"></i></div>
-                    <div class="card-content">
-                        <h2 class="card-title">Solicitações de Uniformes</h2>
-                        <p class="card-value">50</p>
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-title">Solicitações</span>
+                        <span class="card-value">50</span>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="card-icon"><i class="icon-pedidos"></i></div>
-                    <div class="card-content">
-                        <h2 class="card-title">Pedidos Pagos</h2>
-                        <p class="card-value">R$ 1.500</p>
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-title">Pedidos Pagos</span>
+                        <span class="card-value">R$ 1.500</span>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="card-icon"><i class="icon-clientes"></i></div>
-                    <div class="card-content">
-                        <h2 class="card-title">Clientes</h2>
-                        <p class="card-value">120</p>
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-title">Clientes</span>
+                        <span class="card-value">120</span>
                     </div>
                 </div>
             </section>
@@ -85,38 +92,38 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Pedro Silva</td>
-                                <td>Maria Silva</td>
-                                <td>(11) 99999-9999</td>
-                                <td>123.456.789-00</td>
-                                <td>Mestre Kino - Vila Préo</td>
-                                <td>GG</td>
-                                <td>-</td>
-                                <td>
+                                <td data-label="Aluno">Pedro Silva</td>
+                                <td data-label="Responsável">Maria Silva</td>
+                                <td data-label="WhatsApp">(11) 99999-9999</td>
+                                <td data-label="CPF">123.456.789-00</td>
+                                <td data-label="Local de Aula">Mestre Kino - Vila Préo</td>
+                                <td data-label="Tamanho Adulto">GG</td>
+                                <td data-label="Tamanho Infantil">-</td>
+                                <td data-label="Ações">
                                     <button class="action-btn">Visualizar</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Julia Santos</td>
-                                <td>Carlos Santos</td>
-                                <td>(11) 98888-8888</td>
-                                <td>987.654.321-00</td>
-                                <td>Prof. Bruno - Academia Peralta</td>
-                                <td>-</td>
-                                <td>12</td>
-                                <td>
+                                <td data-label="Aluno">Julia Santos</td>
+                                <td data-label="Responsável">Carlos Santos</td>
+                                <td data-label="WhatsApp">(11) 98888-8888</td>
+                                <td data-label="CPF">987.654.321-00</td>
+                                <td data-label="Local de Aula">Prof. Bruno - Academia Peralta</td>
+                                <td data-label="Tamanho Adulto">-</td>
+                                <td data-label="Tamanho Infantil">12</td>
+                                <td data-label="Ações">
                                     <button class="action-btn">Visualizar</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Luiz Fernando</td>
-                                <td>Ana Paula</td>
-                                <td>(11) 97777-7777</td>
-                                <td>555.555.555-55</td>
-                                <td>Prof. Ana Bia - Vila Préo</td>
-                                <td>M</td>
-                                <td>8</td>
-                                <td>
+                                <td data-label="Aluno">Luiz Fernando</td>
+                                <td data-label="Responsável">Ana Paula</td>
+                                <td data-label="WhatsApp">(11) 97777-7777</td>
+                                <td data-label="CPF">555.555.555-55</td>
+                                <td data-label="Local de Aula">Prof. Ana Bia - Vila Préo</td>
+                                <td data-label="Tamanho Adulto">M</td>
+                                <td data-label="Tamanho Infantil">8</td>
+                                <td data-label="Ações">
                                     <button class="action-btn">Visualizar</button>
                                 </td>
                             </tr>
@@ -124,6 +131,14 @@
                     </table>
                 </div>
             </section>
+
+            <nav class="bottom-nav">
+                <a href="#" class="bottom-nav-link active">Dashboard</a>
+                <a href="#" class="bottom-nav-link">Solicitações</a>
+                <a href="#" class="bottom-nav-link">Pedidos</a>
+                <a href="#" class="bottom-nav-link">Clientes</a>
+            </nav>
+
         </main>
     </div>
 
