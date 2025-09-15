@@ -137,4 +137,54 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    // --- LÓGICA DE EXPANSÃO DE INFORMAÇÕES NA TABELA ---
+const actionButtons = document.querySelectorAll('.data-table .action-btn');
+
+if (actionButtons.length > 0) {
+    actionButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const row = btn.closest('tr');
+            
+            // Se já existe uma linha de detalhes logo abaixo, remove ela
+            const nextRow = row.nextElementSibling;
+            if (nextRow && nextRow.classList.contains('info-row')) {
+                nextRow.remove();
+                return;
+            }
+
+            // Remove qualquer outra info-row aberta
+            document.querySelectorAll('.data-table .info-row').forEach(r => r.remove());
+
+            // Captura os dados da linha
+            const nomeAluno = row.dataset.nomeAluno || "Não informado";
+            const localAula = row.dataset.localAula || "Não informado";
+            const tamanhoAdulto = row.dataset.tamanhoAdulto || "-";
+            const tamanhoInfantil = row.dataset.tamanhoInfantil || "-";
+
+            // Cria a nova linha de informações
+            const infoRow = document.createElement('tr');
+            infoRow.classList.add('info-row');
+            infoRow.innerHTML = `
+                <td colspan="5" class="info-cell">
+                    <div class="info-content">
+                        <p><strong>Nome do Aluno:</strong> ${nomeAluno}</p>
+                        <p><strong>Local da Aula:</strong> ${localAula}</p>
+                        <p><strong>Tamanho Adulto:</strong> ${tamanhoAdulto}</p>
+                        <p><strong>Tamanho Infantil:</strong> ${tamanhoInfantil}</p>
+                        <button class="close-info-btn">Fechar</button>
+                    </div>
+                </td>
+            `;
+
+            // Insere a linha logo abaixo da original
+            row.insertAdjacentElement('afterend', infoRow);
+
+            // Adiciona funcionalidade do botão de fechar
+            infoRow.querySelector('.close-info-btn').addEventListener('click', () => {
+                infoRow.remove();
+            });
+        });
+    });
+}
+
 });

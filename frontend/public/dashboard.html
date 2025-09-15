@@ -36,7 +36,7 @@
                 <div class="header-right">
                     <input type="text" placeholder="Buscar..." class="search-bar">
                     <div class="user-profile">
-                        <span class="user-name">João Alexandre</span>
+                        <span class="user-name">Mestre Kino</span>
                         <img src="./img/logo-branco.jpg" alt="Avatar do Usuário" class="user-avatar">
                     </div>
                 </div>
@@ -80,50 +80,49 @@
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th>Aluno</th>
                                 <th>Responsável</th>
                                 <th>WhatsApp</th>
                                 <th>CPF</th>
-                                <th>Local de Aula</th>
-                                <th>Tamanho Adulto</th>
-                                <th>Tamanho Infantil</th>
-                                <th>Ações</th>
+                                <th>Status</th>
+                                <th>Informações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td data-label="Aluno">Pedro Silva</td>
+                            <tr data-nome-aluno="Maria Silva" 
+                                data-local-aula="Colégio Humboldt" 
+                                data-tamanho-adulto="M" 
+                                data-tamanho-infantil="G">
                                 <td data-label="Responsável">Maria Silva</td>
                                 <td data-label="WhatsApp">(11) 99999-9999</td>
                                 <td data-label="CPF">123.456.789-00</td>
-                                <td data-label="Local de Aula">Mestre Kino - Vila Préo</td>
-                                <td data-label="Tamanho Adulto">GG</td>
-                                <td data-label="Tamanho Infantil">-</td>
-                                <td data-label="Ações">
+                                <td data-label="Status"><span class="status pago">Pago</span></td>
+                                <td data-label="Informações">
                                     <button class="action-btn">Visualizar</button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td data-label="Aluno">Julia Santos</td>
-                                <td data-label="Responsável">Carlos Santos</td>
+
+                            <tr data-nome-aluno="Lucas" 
+                                data-local-aula="Colégio CIA" 
+                                data-tamanho-adulto="M" 
+                                data-tamanho-infantil="G">
+                                <td data-label="Responsável">Lucas</td>
                                 <td data-label="WhatsApp">(11) 98888-8888</td>
                                 <td data-label="CPF">987.654.321-00</td>
-                                <td data-label="Local de Aula">Prof. Bruno - Academia Peralta</td>
-                                <td data-label="Tamanho Adulto">-</td>
-                                <td data-label="Tamanho Infantil">12</td>
-                                <td data-label="Ações">
+                                <td data-label="Status"><span class="status pendente">Pendente</span></td>
+                                <td data-label="Informações">
                                     <button class="action-btn">Visualizar</button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td data-label="Aluno">Luiz Fernando</td>
-                                <td data-label="Responsável">Ana Paula</td>
+
+                            <tr data-nome-aluno="Bianca Silva" 
+                                data-local-aula="Companhia Athletica" 
+                                data-tamanho-adulto="M" 
+                                data-tamanho-infantil="G">
+                                <td data-label="Responsável">Bianca Silva</td>
                                 <td data-label="WhatsApp">(11) 97777-7777</td>
                                 <td data-label="CPF">555.555.555-55</td>
-                                <td data-label="Local de Aula">Prof. Ana Bia - Vila Préo</td>
-                                <td data-label="Tamanho Adulto">M</td>
-                                <td data-label="Tamanho Infantil">8</td>
-                                <td data-label="Ações">
+                                <td data-label="Status"><span class="status pago">Pago</span></td>
+                                <td data-label="Informações">
                                     <button class="action-btn">Visualizar</button>
                                 </td>
                             </tr>
@@ -142,5 +141,6 @@
         </main>
     </div>
 
+    <script src="./js/script.js"></script>
 </body>
 </html>
