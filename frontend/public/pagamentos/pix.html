@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pagamento PIX - Mestre Kino</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .pix-container {
+            text-align: center;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .pix-header {
+            margin-bottom: 30px;
+        }
+        
+        .pix-header h2 {
+            color: #e50914;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .pix-header p {
+            color: #bbb;
+            font-size: 1.1rem;
+        }
+        
+        .qrcode-container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .qrcode-container img {
+            width: 250px;
+            height: 250px;
+            border: 2px solid #e50914;
+            border-radius: 10px;
+        }
+        
+        .pix-code-container {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .pix-code-label {
+            color: #e50914;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .pix-code {
+            background: #333;
+            padding: 15px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #fff;
+            margin: 10px 0;
+        }
+        
+        .copy-btn {
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #b0060e;
+        }
+        
+        .countdown {
+            font-size: 1.3rem;
+            color: #e50914;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(229, 9, 20, 0.1);
+            border-radius: 10px;
+        }
+        
+        .status-section {
+            margin: 30px 0;
+        }
+        
+        .status-btn {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .status-btn:hover {
+            background: #128c7e;
+        }
+        
+        .status-message {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        
+        .status-approved {
+            background: rgba(0, 255, 0, 0.1);
+            color: #00ff00;
+        }
+        
+        .status-pending {
+            background: rgba(255, 255, 0, 0.1);
+            color: #ffff00;
+        }
+        
+        .status-error {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff0000;
+        }
+        
+        .loading {
+            font-size: 1.2rem;
+            color: #e50914;
+        }
+        
+        .error-container {
+            background: rgba(229, 9, 20, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .steps {
+            text-align: left;
+            margin: 30px 0;
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .steps h4 {
+            color: #e50914;
+            margin-bottom: 15px;
+        }
+        
+        .steps ol {
+            padding-left: 20px;
+            color: #bbb;
+        }
+        
+        .steps li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <img src="../img/logo-branco.jpg" alt="Logo Mestre Kino" class="logo">
+            <nav class="menu">
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../eventos.html">Eventos</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <section class="event-details-section">
+            <div class="container">
+                <div class="event-details-card">
+                    <div class="pix-container">
+                        <!-- Cabeçalho -->
+                        <div class="pix-header">
+                            <h2><i class="fas fa-qrcode"></i> Pagamento via PIX</h2>
+                            <p>Faça o pagamento do seu uniforme de capoeira</p>
+                        </div>
+
+                        <!-- Loading -->
+                        <div id="loading">
+                            <p class="loading"><i class="fas fa-spinner fa-spin"></i> Gerando QR Code PIX...</p>
+                        </div>
+
+                        <!-- Dados do PIX -->
+                        <div id="pix-data" style="display: none;">
+                            <p>Escaneie o QR Code abaixo usando seu app bancário</p>
+                            
+                            <!-- QR Code -->
+                            <div class="qrcode-container">
+                                <img id="qrcode-img" src="" alt="QR Code PIX">
+                            </div>
+
+                            <!-- Código PIX -->
+                            <div class="pix-code-container">
+                                <span class="pix-code-label"><i class="fas fa-copy"></i> Ou copie o código PIX:</span>
+                                <div class="pix-code" id="pix-code"></div>
+                                <button class="copy-btn" onclick="copiarCodigoPix()">
+                                    <i class="fas fa-copy"></i> Copiar Código
+                                </button>
+                            </div>
+
+                            <!-- Contagem regressiva -->
+                            <div class="countdown">
+                                <i class="fas fa-clock"></i> Este PIX expira em: 
+                                <span id="expiration-time">--:--</span>
+                            </div>
+
+                            <!-- Passo a passo -->
+                            <div class="steps">
+                                <h4><i class="fas fa-info-circle"></i> Como pagar:</h4>
+                                <ol>
+                                    <li>Abra o app do seu banco</li>
+                                    <li>Selecione a opção PIX</li>
+                                    <li>Escaneie o QR Code ou cole o código</li>
+                                    <li>Confirme o pagamento de R$ 89,90</li>
+                                    <li>Volte aqui para confirmar o pagamento</li>
+                                </ol>
+                            </div>
+
+                            <!-- Verificação de status -->
+                            <div class="status-section">
+                                <button onclick="verificarStatus()" class="status-btn">
+                                    <i class="fas fa-check-circle"></i> Já paguei, verificar status
+                                </button>
+                                <div id="status-message" class="status-message"></div>
+                            </div>
+                        </div>
+
+                        <!-- Erro -->
+                        <div id="error" style="display: none;" class="error-container">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Erro no pagamento</h3>
+                            <p>Não foi possível gerar o pagamento PIX.</p>
+                            <a href="../eventos.html" class="uniform-button">
+                                <i class="fas fa-arrow-left"></i> Voltar aos eventos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <ul>
+                <li><a href="../termos.html">Termos de Uso</a></li>
+                <li><a href="../politica.html">Privacidade</a></li>
+                <li><a href="../index.html#faq">FAQ</a></li>
+            </ul>
+            <p>&copy; 2025 Mestre Kino Capoeira. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const pedidoId = urlParams.get('pedido_id');
+
+        let expirationInterval;
+        let statusCheckInterval;
+
+        // Buscar dados do PIX
+        async function carregarDadosPIX() {
+            try {
+                console.log('Buscando dados do PIX para pedido:', pedidoId);
+                
+                const response = await fetch(`/api/pedido/${pedidoId}/pix`);
+                const data = await response.json();
+
+                console.log('Dados recebidos:', data);
+
+                if (data.success && data.pix) {
+                    // Esconder loading e mostrar dados
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('pix-data').style.display = 'block';
+
+                    // Exibir QR Code (usando base64 ou URL)
+                    if (data.pix.qr_code_base64) {
+                        document.getElementById('qrcode-img').src = data.pix.qr_code_base64;
+                    } else if (data.pix.qr_code) {
+                        // Se não tiver base64, podemos gerar um QR code client-side
+                        document.getElementById('qrcode-img').src = 
+                            `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(data.pix.qr_code)}`;
+                    }
+
+                    // Exibir código PIX
+                    if (data.pix.qr_code) {
+                        document.getElementById('pix-code').textContent = data.pix.qr_code;
+                    }
+
+                    // Configurar contagem regressiva
+                    if (data.pix.expiration_date) {
+                        iniciarCountdown(new Date(data.pix.expiration_date));
+                    } else {
+                        // Fallback: 30 minutos a partir de agora
+                        const expiraEm = new Date();
+                        expiraEm.setMinutes(expiraEm.getMinutes() + 30);
+                        iniciarCountdown(expiraEm);
+                    }
+
+                    // Verificar status automaticamente a cada 30 segundos
+                    statusCheckInterval = setInterval(verificarStatus, 30000);
+
+                } else {
+                    mostrarErro('Não foi possível gerar o pagamento PIX');
+                }
+            } catch (error) {
+                console.error('Erro ao carregar dados PIX:', error);
+                mostrarErro('Erro de conexão. Tente novamente.');
+            }
+        }
+
+        function iniciarCountdown(expirationDate) {
+            function atualizarCountdown() {
+                const agora = new Date();
+                const diferenca = expirationDate - agora;
+
+                if (diferenca <= 0) {
+                    clearInterval(expirationInterval);
+                    document.getElementById('expiration-time').textContent = 'EXPIRADO';
+                    document.getElementById('expiration-time').style.color = '#ff0000';
+                    return;
+                }
+
+                const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+                document.getElementById('expiration-time').textContent = 
+                    `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+            }
+
+            atualizarCountdown();
+            expirationInterval = setInterval(atualizarCountdown, 1000);
+        }
+
+        async function verificarStatus() {
+            try {
+                document.getElementById('status-message').textContent = 'Verificando...';
+                document.getElementById('status-message').className = 'status-message status-pending';
+                
+                const response = await fetch(`/api/pedido/${pedidoId}/pix`);
+                const data = await response.json();
+
+                if (data.status === 'approved') {
+                    document.getElementById('status-message').textContent = 
+                        '✅ Pagamento confirmado! Redirecionando...';
+                    document.getElementById('status-message').className = 'status-message status-approved';
+                    
+                    // Redirecionar após 2 segundos
+                    setTimeout(() => {
+                        window.location.href = 'sucesso.html';
+                    }, 2000);
+                    
+                } else if (data.status === 'pending') {
+                    document.getElementById('status-message').textContent = 
+                        '⌛ Aguardando confirmação do pagamento...';
+                    document.getElementById('status-message').className = 'status-message status-pending';
+                } else {
+                    document.getElementById('status-message').textContent = 
+                        '❌ Pagamento não identificado. Tente novamente.';
+                    document.getElementById('status-message').className = 'status-message status-error';
+                }
+            } catch (error) {
+                document.getElementById('status-message').textContent = 
+                    '❌ Erro ao verificar status. Tente novamente.';
+                document.getElementById('status-message').className = 'status-message status-error';
+            }
+        }
+
+        function copiarCodigoPix() {
+            const codigoPix = document.getElementById('pix-code').textContent;
+            
+            navigator.clipboard.writeText(codigoPix).then(() => {
+                alert('✅ Código PIX copiado! Cole no seu app bancário.');
+            }).catch(err => {
+                alert('❌ Não foi possível copiar o código. Selecione e copie manualmente.');
+            });
+        }
+
+        function mostrarErro(mensagem) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('pix-data').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            
+            if (mensagem) {
+                document.querySelector('#error p').textContent = mensagem;
+            }
+        }
+
+        // Iniciar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            if (pedidoId) {
+                carregarDadosPIX();
+            } else {
+                mostrarErro('Pedido não identificado. Volte e tente novamente.');
+            }
+        });
+
+        // Limpar intervals quando a página for fechada
+        window.addEventListener('beforeunload', function() {
+            if (expirationInterval) clearInterval(expirationInterval);
+            if (statusCheckInterval) clearInterval(statusCheckInterval);
+        });
+    </script>
+</body>
+</html>
